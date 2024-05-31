@@ -1,0 +1,39 @@
+int potPin = A1;
+int myNumber;
+String msg1 = "Ingresa un número: ";
+String msg2 = "Tu número es: ";
+int rojo = 2;
+int azul = 3;
+int verde = 4;
+int potVal; 
+int delayTime = 400;
+
+
+void setup() {
+  // put your setup code here, to run once:
+   Serial.begin(9600);
+   pinMode(potPin, INPUT);
+    pinMode(rojo, OUTPUT);
+    pinMode(azul, OUTPUT);
+       pinMode(verde, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    
+    potVal = analogRead(potPin);
+    Serial.println(potVal);
+     delay(delayTime);
+    while(potVal>900){
+      digitalWrite(rojo, HIGH);
+      digitalWrite(azul, HIGH);
+      digitalWrite(verde, HIGH);
+       Serial.println(potVal);
+      potVal = analogRead(potPin);
+        delay(delayTime);
+    }
+     digitalWrite(rojo, LOW);
+      digitalWrite(azul, LOW);
+      digitalWrite(verde, LOW);
+  
+}
